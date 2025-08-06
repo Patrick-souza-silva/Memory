@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import {
   Container, Typography, Button, Box, Card, CardMedia,
-  CircularProgress, Alert, Grid
+  CircularProgress, Alert, Grid, Link
 } from '@mui/material';
 
-//trocar depois para variavel de ambiente
-const SERVER_URL = 'http://212.85.1.39:4000'; // altere para seu IP real se testar em rede
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 function App() {
   const [isUploading, setIsUploading] = useState(false);
@@ -60,20 +59,38 @@ function App() {
     <Container maxWidth="false"
       sx={{
         minHeight: '100vh',
-        background: 'linear-gradient(to bottom right, #f6a4f6ff, #f800dfff)',
+        background: 'linear-gradient(to bottom right, #f6a4f6ff, #c500b2ff)',
         py: 5,
         textAlign: 'center'
       }}>
-      <Typography variant="h3"
-        gutterBottom
+      <Box
         sx={{
-          fontWeight: 700,
-          color: '#333',
-          textShadow: '1px 1px 3px rgba(0,0,0,0.1)'
-        }}>
-        Memory 🎉
-      </Typography>
-
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 2,
+          mb: 2
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{
+            fontWeight: 700,
+            color: '#333',
+            textShadow: '1px 1px 3px rgba(0,0,0,0.1)'
+          }}
+        >
+          Memory
+        </Typography>
+        <img
+          src="/Logo-memory.png"
+          alt="Memory Logo"
+          style={{
+            width: '100px', // pode ajustar
+            height: 'auto'
+          }}
+        />
+      </Box>
       <Button variant="contained"
         color="secondary"
         sx={{
@@ -130,6 +147,21 @@ function App() {
             </Grid>
           ))}
         </Grid>
+      </Box>
+
+      <Box component="footer" sx={{ mt: 6, py: 2, bgcolor: 'rgba(0,0,0,0.1)' }}>
+        <Typography variant="body2" color="text.secondary">
+          Desenvolvido por{' '}
+          <Link
+            href="https://www.instagram.com/fortysoft"
+            target="_blank"
+            rel="noopener noreferrer"
+            underline="hover"
+            sx={{ fontWeight: 'bold' }}
+          >
+            FortySoft
+          </Link>
+        </Typography>
       </Box>
     </Container>
   );
