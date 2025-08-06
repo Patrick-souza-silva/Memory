@@ -56,6 +56,6 @@ app.get('/images', (req, res) => {
 app.use('/uploads', express.static(uploadDir));
 
 // Iniciar servidor
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Backend rodando em http://212.85.1.39:${PORT}`);
 });
