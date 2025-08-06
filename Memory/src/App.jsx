@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 
 //trocar depois para variavel de ambiente
-const SERVER_URL = 'http://212.85.1.39:3000'; // altere para seu IP real se testar em rede
+const SERVER_URL = 'http://212.85.1.39:4000'; // altere para seu IP real se testar em rede
 
 function App() {
   const [isUploading, setIsUploading] = useState(false);
