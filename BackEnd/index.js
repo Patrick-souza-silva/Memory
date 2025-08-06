@@ -3,10 +3,12 @@ const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+require('dotenv').config();
 
 const app = express();
-const PORT = 4000;
-
+const PORT = process.env.SERVER_PORT
+const HOST = process.env.SERVER_HOST
+const SERVER_URL = process.env.SERVER_URL
 // Habilita CORS
 app.use(cors());
 
@@ -56,6 +58,6 @@ app.get('/images', (req, res) => {
 app.use('/uploads', express.static(uploadDir));
 
 // Iniciar servidor
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Backend rodando em http://212.85.1.39:${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`🚀 Backend rodando em ${SERVER_URL}:${PORT}`);
 });
