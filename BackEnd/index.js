@@ -6,9 +6,9 @@ const fs = require('fs');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.SERVER_PORT
-const HOST = process.env.SERVER_HOST
-const SERVER_URL = process.env.SERVER_URL
+const PORT = process.env.SERVER_PORT || 4000;
+const HOST = process.env.SERVER_HOST || 'localhost';
+const SERVER_URL = process.env.SERVER_URL || `http://${HOST}:${PORT}`;
 // Habilita CORS
 app.use(cors());
 
@@ -59,5 +59,5 @@ app.use('/uploads', express.static(uploadDir));
 
 // Iniciar servidor
 app.listen(PORT, HOST, () => {
-  console.log(`🚀 Backend rodando em ${SERVER_URL}:${PORT}`);
+  console.log(`🚀 Backend rodando em ${SERVER_URL}`);
 });
