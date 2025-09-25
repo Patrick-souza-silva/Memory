@@ -4,10 +4,11 @@ import {
   CircularProgress, Alert, Grid, Link
 } from '@mui/material';
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:4000';
 
 function App() {
   const [isUploading, setIsUploading] = useState(false);
+  
   const [uploadResult, setUploadResult] = useState(null);
   const [images, setImages] = useState([]);
 
@@ -83,7 +84,7 @@ function App() {
           Memory
         </Typography>
         <img
-          src="/Logo-memory.png"
+          src="Logo-memory.png"
           alt="Memory Logo"
           style={{
             width: '100px', // pode ajustar
