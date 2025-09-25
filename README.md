@@ -1,4 +1,5 @@
 # 📸 Memory — Galeria Online Interativa
+![Preview do Projeto](./Memory/public/imagem.png)
 
 ---
 
